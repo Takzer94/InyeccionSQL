@@ -23,7 +23,19 @@ $nr = mysqli_num_rows($query);
 if ($nr !=0)
 {
 	//header ("Location: login.html")
-	echo "Bienvenido: LA clave esta aquí " .$nombre;
+	echo "Bienvenido: " .$nombre;
+	echo "<br>";
+	$result = mysqli_query($conn, "SELECT contrasena FROM usuarios WHERE id = '10'");
+	$resultCheck = mysqli_num_rows($result);
+
+	if ($resultCheck > 0){
+		  while ($row = mysqli_fetch_assoc($result)){	
+		  echo "Buena suerte:\t";
+		  echo $row['contrasena'] . "<br>";
+
+  		}
+	}
+	
 }
 else
 {
